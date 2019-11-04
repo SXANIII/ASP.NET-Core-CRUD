@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EmlpoyeeCrudApp.Models.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Employee Manager";
+}
+
+    <h1>Employee Manager</h1>
+
+<p>
+    <a asp-action="Create">Create New Employee</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TerminatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TerminatedDate)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
